@@ -1,0 +1,22 @@
+# ===== WoundLens Dependencies =====
+
+# --- Web UI ---
+streamlit>=1.30.0
+
+# --- Computer Vision & ML ---
+ultralytics>=8.1.0          # YOLOv8 for wound detection
+opencv-python>=4.9.0        # Image processing, HSV segmentation
+numpy>=1.24.0               # Array operations
+Pillow>=10.0.0              # Image handling
+
+# --- Data Visualization ---
+plotly>=5.18.0               # Interactive charts (Healing Tracker)
+matplotlib>=3.8.0            # Static plots, tissue overlays
+
+# --- Utilities ---
+scikit-learn>=1.3.0          # K-Means fallback for tissue clustering
+pandas>=2.1.0                # Data handling for healing tracker
+
+# --- Model Training (install on GPU machine / Colab) ---
+# torch & torchvision are auto-installed by ultralytics
+# roboflow                   # Uncomment if using Roboflow API for dataset download

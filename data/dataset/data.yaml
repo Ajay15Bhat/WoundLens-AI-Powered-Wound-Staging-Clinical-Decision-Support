@@ -1,0 +1,33 @@
+# WoundLens YOLOv8 Dataset Configuration
+# =======================================
+# This file tells YOLOv8 where to find images/labels and what classes exist.
+#
+# USAGE: Referenced in models/train.py during training
+#   model.train(data="data/dataset/data.yaml", ...)
+#
+# ⚠️ IF YOU DOWNLOADED FROM ROBOFLOW:
+#   Your download likely has 3 data.yaml files (one in each split folder).
+#   IGNORE THOSE. Use the ROOT-LEVEL data.yaml that came with the download,
+#   or simply replace this file's paths with yours.
+#
+#   Option A: Copy Roboflow's ROOT data.yaml here and update paths.
+#   Option B: Point train.py directly at Roboflow's data.yaml:
+#             model.train(data="data/roboflow_download/data.yaml", ...)
+#
+# LABEL FORMAT (each .txt file, one line per object):
+#   class_id  center_x  center_y  width  height
+#   0         0.45      0.52      0.30   0.25
+#   (all values normalized to 0-1 relative to image dimensions)
+
+# Paths (relative to this file's location)
+# ─── UPDATE THESE to match your actual folder names ───
+train: images/train
+val: images/val
+# test: images/test   # Uncomment if you have a test split
+
+# Number of classes
+nc: 1
+
+# Class names
+names:
+  0: wound

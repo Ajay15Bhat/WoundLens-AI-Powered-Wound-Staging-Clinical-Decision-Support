@@ -1,0 +1,231 @@
+{
+    "TREATMENT_DATABASE": {
+        "Stage 1": {
+            "primary_actions": [
+                "Pressure redistribution (reposition every 2 hours)",
+                "Apply transparent film or skin barrier/protectant",
+                "Keep skin clean and dry \u2014 use pH-balanced cleanser",
+                "Apply moisture barrier cream to protect intact skin"
+            ],
+            "dressings": [
+                {
+                    "name": "Transparent Film Dressing",
+                    "reason": "Protects intact skin, allows visual monitoring without removal",
+                    "examples": [
+                        "Tegaderm",
+                        "OpSite"
+                    ]
+                },
+                {
+                    "name": "Skin Barrier Cream",
+                    "reason": "Prevents moisture damage and friction on intact skin",
+                    "examples": [
+                        "Cavilon",
+                        "Critic-Aid"
+                    ]
+                }
+            ],
+            "nutrition": "Ensure adequate protein intake (1.25-1.5 g/kg/day) and hydration",
+            "monitoring": "Reassess every shift; if redness does not resolve in 72 hours, escalate",
+            "referral": "None required unless non-resolving after 72 hours",
+            "urgency": "LOW",
+            "follow_up_days": 3
+        },
+        "Stage 2": {
+            "primary_actions": [
+                "Maintain moist wound healing environment",
+                "Cleanse with normal saline or non-cytotoxic wound cleanser",
+                "Apply moisture-retentive dressing",
+                "Pressure redistribution \u2014 support surface if not already in place",
+                "Protect periwound skin with barrier product"
+            ],
+            "dressings": [
+                {
+                    "name": "Hydrocolloid Dressing",
+                    "reason": "Creates moist environment, promotes autolytic debridement of minor slough",
+                    "examples": [
+                        "DuoDERM",
+                        "Comfeel"
+                    ]
+                },
+                {
+                    "name": "Foam Dressing (thin)",
+                    "reason": "Absorbent for light-to-moderate exudate, cushioning protection",
+                    "examples": [
+                        "Mepilex Lite",
+                        "Allevyn Thin"
+                    ]
+                },
+                {
+                    "name": "Hydrogel (if dry)",
+                    "reason": "Adds moisture to dry wound beds, rehydrates tissue",
+                    "examples": [
+                        "Intrasite Gel",
+                        "SAF-Gel"
+                    ]
+                }
+            ],
+            "nutrition": "High-protein diet (1.25-1.5 g/kg/day), vitamin C and zinc supplementation",
+            "monitoring": "Reassess every 1-3 days; measure wound dimensions weekly",
+            "referral": "Wound care nurse consult if no improvement in 2 weeks",
+            "urgency": "MODERATE",
+            "follow_up_days": 7
+        },
+        "Stage 3": {
+            "primary_actions": [
+                "Wound bed preparation \u2014 debride slough/necrotic tissue",
+                "Cleanse with normal saline irrigation (gentle pressure)",
+                "Apply absorbent dressing for exudate management",
+                "Fill dead space with packing (alginate rope or hydrofiber)",
+                "Assess for undermining or tunneling",
+                "Evaluate for wound infection (odor, warmth, erythema, purulence)",
+                "Pressure redistribution with specialty support surface"
+            ],
+            "dressings": [
+                {
+                    "name": "Alginate Dressing",
+                    "reason": "Highly absorbent, forms gel with exudate, ideal for deep wounds",
+                    "examples": [
+                        "Kaltostat",
+                        "Maxorb"
+                    ]
+                },
+                {
+                    "name": "Foam Dressing (thick)",
+                    "reason": "Secondary cover over alginate, absorbs excess drainage",
+                    "examples": [
+                        "Mepilex Border",
+                        "Allevyn"
+                    ]
+                },
+                {
+                    "name": "Hydrofiber / Gelling Fiber",
+                    "reason": "Locks exudate into fiber structure, manages heavy drainage",
+                    "examples": [
+                        "Aquacel",
+                        "Durafiber"
+                    ]
+                },
+                {
+                    "name": "Silver Antimicrobial Dressing (if infected)",
+                    "reason": "Broad-spectrum antimicrobial action for infected or at-risk wounds",
+                    "examples": [
+                        "Aquacel Ag",
+                        "Mepilex Ag"
+                    ]
+                }
+            ],
+            "debridement": {
+                "method": "Autolytic or sharp debridement as indicated",
+                "details": "If slough covers >30% of wound bed, consider sharp debridement by trained clinician. For smaller amounts, autolytic debridement with hydrogel under occlusive dressing."
+            },
+            "nutrition": "High-protein diet (1.5-2.0 g/kg/day), caloric supplementation, vitamins A, C, zinc",
+            "monitoring": "Reassess at every dressing change (every 1-3 days); weekly wound measurement",
+            "referral": "Wound care specialist consult; consider surgical evaluation",
+            "urgency": "HIGH",
+            "follow_up_days": 3
+        },
+        "Stage 4": {
+            "primary_actions": [
+                "URGENT: Surgical consult for possible operative debridement",
+                "Comprehensive wound bed preparation",
+                "Aggressive debridement of all necrotic tissue",
+                "Manage heavy exudate with absorbent dressing systems",
+                "Negative-Pressure Wound Therapy (NPWT/VAC) consideration",
+                "Rule out osteomyelitis (bone infection) \u2014 may need imaging/biopsy",
+                "Assess for systemic infection (labs: WBC, CRP, blood cultures)",
+                "Specialty pressure redistribution surface (low-air-loss or alternating pressure)"
+            ],
+            "dressings": [
+                {
+                    "name": "Alginate Packing (for deep cavities)",
+                    "reason": "Fills dead space, absorbs heavy exudate, promotes granulation",
+                    "examples": [
+                        "Kaltostat Rope",
+                        "Maxorb Extra"
+                    ]
+                },
+                {
+                    "name": "Negative-Pressure Wound Therapy (NPWT)",
+                    "reason": "Removes exudate, reduces edema, promotes granulation in large wounds",
+                    "examples": [
+                        "V.A.C. Therapy",
+                        "PICO"
+                    ]
+                },
+                {
+                    "name": "Silver Antimicrobial Dressing",
+                    "reason": "Critical infection risk \u2014 antimicrobial barrier essential",
+                    "examples": [
+                        "Aquacel Ag+ Extra",
+                        "Silvercel"
+                    ]
+                },
+                {
+                    "name": "Collagen Dressing (once clean)",
+                    "reason": "Promotes granulation tissue formation in clean wound beds",
+                    "examples": [
+                        "Promogran",
+                        "Endoform"
+                    ]
+                }
+            ],
+            "debridement": {
+                "method": "Sharp/surgical debridement by qualified clinician",
+                "details": "Stage 4 wounds with significant necrosis require aggressive debridement. Stable dry eschar on heels is an EXCEPTION \u2014 do not debride unless infection is suspected."
+            },
+            "nutrition": "Aggressive nutritional support: 2.0+ g/kg/day protein, caloric supplementation, multivitamin",
+            "monitoring": "Daily assessment; wound measurement at each dressing change",
+            "referral": "Surgical consult REQUIRED; wound care team; nutritionist; consider IV antibiotics",
+            "urgency": "CRITICAL",
+            "follow_up_days": 1
+        },
+        "Unstageable": {
+            "primary_actions": [
+                "Cannot stage until wound bed is visible \u2014 debridement first priority",
+                "Soften eschar with hydrogel if sharp debridement not immediately available",
+                "Do NOT debride stable, dry, intact eschar on heels without clinical reason",
+                "Assess for underlying infection beneath eschar/slough",
+                "Once debrided, re-assess and stage appropriately"
+            ],
+            "dressings": [
+                {
+                    "name": "Hydrogel (to soften eschar)",
+                    "reason": "Rehydrates and softens dry eschar to facilitate autolytic debridement",
+                    "examples": [
+                        "Intrasite Gel",
+                        "Woun'Dres"
+                    ]
+                },
+                {
+                    "name": "Honey-based Dressing (medical grade)",
+                    "reason": "Osmotic debridement, antimicrobial, promotes moist environment",
+                    "examples": [
+                        "Medihoney",
+                        "Manuka honey dressing"
+                    ]
+                }
+            ],
+            "debridement": {
+                "method": "Determine appropriate debridement method based on clinical assessment",
+                "details": "Unstageable wounds need debridement to reveal the true wound bed. Method depends on patient status, wound location, and clinician expertise. EXCEPTION: Stable, dry, intact eschar on heels \u2014 monitor only."
+            },
+            "nutrition": "High-protein diet, supplementation as for Stage 3/4",
+            "monitoring": "Reassess after debridement to determine true stage",
+            "referral": "Wound care specialist consult for debridement planning",
+            "urgency": "CRITICAL",
+            "follow_up_days": 2
+        }
+    },
+    "INFECTION_SIGNS": [
+        "Increased pain or tenderness at wound site",
+        "Erythema (redness) spreading beyond wound edges",
+        "Local warmth around the wound",
+        "Purulent drainage (pus) \u2014 yellow, green, or brown",
+        "Foul odor from the wound",
+        "Fever or chills (systemic infection sign)",
+        "Increased wound size despite treatment",
+        "Friable (easily bleeding) granulation tissue",
+        "Wound breakdown or dehiscence"
+    ]
+}

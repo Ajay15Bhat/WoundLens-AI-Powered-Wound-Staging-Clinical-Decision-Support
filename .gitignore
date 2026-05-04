@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environment
+venv/
+env/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Model weights (large files)
+models/weights/*.pt
+*.onnx
+
+# Data (large files — don't push raw datasets)
+data/raw/
+data/dataset/images/
+data/dataset/labels/
+data/sample_wounds/*.jpg
+data/sample_wounds/*.png
+data/sample_wounds/results/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Misc
+*.log
+*.tmp
