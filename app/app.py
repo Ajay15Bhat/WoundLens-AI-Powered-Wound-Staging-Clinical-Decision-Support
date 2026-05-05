@@ -20,7 +20,7 @@ st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
     html, body, [class*="css"] { font-family: 'Inter', sans-serif !important; }
-    #MainMenu, footer, header { visibility: hidden !important; }
+    #MainMenu, footer { visibility: hidden !important; }
 
     /* ---- Deep dark background ---- */
     .stApp {
@@ -90,80 +90,33 @@ st.markdown("""
 
 
 # ====================================================================
-# SIDEBAR
-# ====================================================================
-with st.sidebar:
-    st.markdown("""
-    <div style="text-align:center; padding:1rem 0 0.5rem;">
-        <div style="
-            width:50px; height:50px; margin:0 auto 0.5rem;
-            background: linear-gradient(135deg, #C03030, #E06060);
-            border-radius: 14px;
-            display:flex; align-items:center; justify-content:center;
-            font-size:1.5rem; color:white; font-weight:900;
-            box-shadow: 0 4px 16px rgba(192,48,48,0.3);
-        ">W</div>
-        <div style="font-size:1.1rem; font-weight:700; color:#eee;">WoundLens</div>
-        <div style="font-size:0.65rem; color:#555; margin-top:0.15rem; letter-spacing:1px; text-transform:uppercase;">Clinical AI Platform</div>
-    </div>
-    """, unsafe_allow_html=True)
-    st.markdown("---")
-    st.page_link("app.py", label="Home")
-    st.page_link("pages/1_Analyze.py", label="Analyze Wound")
-    st.page_link("pages/2_Tracker.py", label="Healing Tracker")
-    st.page_link("pages/3_About.py", label="About")
-    st.markdown("---")
-    st.markdown(
-        "<div style='color:#333; font-size:0.65rem; text-align:center; letter-spacing:0.5px;'>"
-        "Built for Hackathon 2026</div>",
-        unsafe_allow_html=True,
-    )
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from core.ui import render_sidebar
+
+render_sidebar()
 
 
 # ====================================================================
 # HERO
 # ====================================================================
 st.markdown("")
-st.markdown("""
-<div style="text-align:center; padding:2.5rem 1rem 1.5rem;">
-    <div style="
-        display:inline-block; padding:0.3rem 1.2rem;
-        background: rgba(192,48,48,0.12);
-        border: 1px solid rgba(192,48,48,0.25);
-        border-radius: 20px;
-        font-size:0.7rem; font-weight:700; color:#E06060;
-        letter-spacing:2px; text-transform:uppercase;
-        margin-bottom:1.2rem;
-    ">AI-Powered Clinical Decision Support</div>
-
-    <h1 style="
-        font-size:4.5rem; font-weight:900; line-height:1.05;
-        background: linear-gradient(135deg, #C03030 0%, #FF6B6B 40%, #FF9E53 70%, #C03030 100%);
-        background-size: 300% 300%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: heroGrad 6s ease infinite;
-        margin:0 0 1rem;
-        letter-spacing:-2px;
-    ">WoundLens</h1>
-
-    <p style="
-        font-size:1.1rem; color:#777; font-weight:300;
-        max-width:550px; margin:0 auto; line-height:1.7;
-    ">
-        Upload a wound photo. Get instant tissue classification,
-        NPIAP staging, and evidence-based treatment recommendations.
-    </p>
+st.markdown("""<div style="text-align:center; padding:2.5rem 1rem 1.5rem; animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; transform: translateY(20px);">
+    <div style="display:inline-block; padding:0.3rem 1.2rem; background: rgba(192,48,48,0.12); border: 1px solid rgba(192,48,48,0.25); border-radius: 20px; font-size:0.7rem; font-weight:700; color:#E06060; letter-spacing:2px; text-transform:uppercase; margin-bottom:1.2rem;">AI-Powered Clinical Decision Support</div>
+    <h1 style="font-size:4.5rem; font-weight:900; line-height:1.05; background: linear-gradient(135deg, #C03030 0%, #FF6B6B 40%, #FF9E53 70%, #C03030 100%); background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: heroGrad 6s ease infinite; margin:0 0 1rem; letter-spacing:-2px;">WoundLens</h1>
+    <p style="font-size:1.1rem; color:#777; font-weight:300; max-width:550px; margin:0 auto; line-height:1.7;">Upload a wound photo. Get instant tissue classification, NPIAP staging, and evidence-based treatment recommendations.</p>
 </div>
-
 <style>
 @keyframes heroGrad {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
-</style>
-""", unsafe_allow_html=True)
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>""", unsafe_allow_html=True)
 
 st.markdown("")
 
@@ -251,13 +204,7 @@ for col, (num, title, desc, color) in zip([p1, p2, p3, p4], pipeline):
 st.markdown("")
 st.markdown("")
 
-# ====================================================================
-# CTA
-# ====================================================================
-col_l, col_c, col_r = st.columns([1, 2, 1])
-with col_c:
-    if st.button("Start Wound Analysis", type="primary", use_container_width=True):
-        st.switch_page("pages/1_Analyze.py")
+
 
 st.markdown("")
 st.markdown("---")

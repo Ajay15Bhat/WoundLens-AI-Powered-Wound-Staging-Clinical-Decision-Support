@@ -20,7 +20,7 @@ st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
     html, body, [class*="css"] { font-family: 'Inter', sans-serif !important; }
-    #MainMenu, footer, header { visibility: hidden !important; }
+    #MainMenu, footer { visibility: hidden !important; }
     .stApp {
         background: radial-gradient(ellipse at 20% 50%, #1a0a0a 0%, #0a0a14 40%, #060612 100%) !important;
     }
@@ -34,15 +34,25 @@ st.markdown("""
         border-radius: 14px;
         padding: 1rem 1.2rem;
     }
-    [data-testid="stMetricValue"] { font-weight: 800 !important; }
+    [data-testid="stMetricValue"] { 
+        font-weight: 700 !important; 
+        font-size: 1.4rem !important; 
+    }
+    [data-testid="stMetricLabel"] {
+        font-size: 0.8rem !important;
+        color: #aaa !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
 # -- Sidebar --
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+from core.ui import render_sidebar
+render_sidebar()
+
 with st.sidebar:
-    st.markdown("## WoundLens")
-    st.markdown("**Healing Tracker**")
-    st.markdown("---")
     st.markdown("### Projection Settings")
     weeks = st.slider("Projection Period (weeks)", 4, 24, 12)
     healing_rate = st.select_slider(

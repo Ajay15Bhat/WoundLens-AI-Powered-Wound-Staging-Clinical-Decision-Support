@@ -20,3 +20,4 @@ pandas>=2.1.0                # Data handling for healing tracker
 # --- Model Training (install on GPU machine / Colab) ---
 # torch & torchvision are auto-installed by ultralytics
 # roboflow                   # Uncomment if using Roboflow API for dataset download
+gTTS>=2.5.0                  # Voice Summary feature

@@ -11,6 +11,8 @@ from PIL import Image
 import sys
 import os
 import time
+import io
+from gtts import gTTS
 
 # Add project root to path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
@@ -34,7 +36,7 @@ st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
     html, body, [class*="css"] { font-family: 'Inter', sans-serif !important; }
-    #MainMenu, footer, header { visibility: hidden !important; }
+    #MainMenu, footer { visibility: hidden !important; }
 
     .stApp {
         background: radial-gradient(ellipse at 20% 50%, #1a0a0a 0%, #0a0a14 40%, #060612 100%) !important;
@@ -49,7 +51,14 @@ st.markdown("""
         border-radius: 14px;
         padding: 1rem 1.2rem;
     }
-    [data-testid="stMetricValue"] { font-weight: 800 !important; }
+    [data-testid="stMetricValue"] { 
+        font-weight: 700 !important; 
+        font-size: 1.4rem !important; 
+    }
+    [data-testid="stMetricLabel"] {
+        font-size: 0.8rem !important;
+        color: #aaa !important;
+    }
     .stTabs [data-baseweb="tab-list"] {
         gap: 0.5rem;
         background: rgba(255,255,255,0.02);
@@ -111,11 +120,13 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ── Sidebar ──
-with st.sidebar:
-    st.markdown("## 🩺 WoundLens")
-    st.markdown("**Wound Analysis**")
-    st.markdown("---")
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+from core.ui import render_sidebar
+render_sidebar()
 
+with st.sidebar:
     st.markdown("### Settings")
     use_lab = st.checkbox("Use LAB confirmation", value=True,
                           help="Intersect HSV and LAB masks for higher precision")
@@ -233,6 +244,27 @@ if image_source is not None:
         unsafe_allow_html=True,
     )
 
+    # ── Voice Summary ──
+    with st.expander("🔊 Play Voice Summary"):
+        summary_text = (
+            f"The wound is classified as {stage_result['stage']}. "
+            f"The tissue breakdown is {ratios['granulation']:.0f} percent granulation, "
+            f"{ratios['slough']:.0f} percent slough, and {ratios['necrotic']:.0f} percent necrotic tissue. "
+            f"Recommended treatment: {treatment['primary_actions'][0]}. "
+            f"Suggested dressing: {treatment['dressings'][0]['name']}."
+        )
+        
+        try:
+            tts = gTTS(text=summary_text, lang='en', slow=False)
+            fp = io.BytesIO()
+            tts.write_to_fp(fp)
+            fp.seek(0)
+            audio_bytes = fp.read()
+            st.audio(audio_bytes, format="audio/mp3")
+            st.markdown(f"*{summary_text}*")
+        except Exception as e:
+            st.error(f"Could not generate voice summary: {e}")
+
     # ── Tissue Composition Bar ──
     gran_pct = ratios["granulation"]
     slough_pct = ratios["slough"]
@@ -304,8 +336,11 @@ if image_source is not None:
         st.markdown('<div class="result-title">Wound Metrics</div>', unsafe_allow_html=True)
 
         m1, m2 = st.columns(2)
-        m1.metric("Coverage", f"{seg_result['coverage_pct']}%")
-        m2.metric("Wound Area", f"{seg_result['wound_area_px']:,} px")
+        m1.metric("Img Coverage", f"{float(seg_result['coverage_pct']):.1f}%")
+        
+        # Use the bounding box width and height for size dimensions
+        bw, bh = seg_result['wound_bbox'][2:]
+        m2.metric("Wound Size", f"{bw} x {bh} px")
 
         m3, m4 = st.columns(2)
         m3.metric("Severity", stage_result["severity"])
